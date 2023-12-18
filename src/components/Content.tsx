@@ -16,19 +16,21 @@ export default function Content() {
     address,
   );
 
-  if (chain?.chainId !== chainId) {
-    return (
-      <div>Connect to {chainName}</div>
-    );
-  }
-
   if (isLoading) {
     return (
       <div>Loading...</div>
     );
   }
 
+  if (chain?.chainId !== chainId) {
+    return (
+      <div>Connect to {chainName}</div>
+    );
+  }
+
   return (
-    <div>{data?.displayValue} JPYC</div>
+    <div>
+      <div className="pt-4">{data?.displayValue} JPYC</div>
+    </div>
   );
 }

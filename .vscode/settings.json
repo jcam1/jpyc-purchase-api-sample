@@ -1,5 +1,13 @@
 {
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "editor.formatOnSave": true,
+  "prettier.configPath": ".prettierrc.js",
   "files.associations": {
     "*.css": "tailwindcss"
-  }
+  },
+  "cSpell.words": [
+    "clsx",
+    "hookform",
+    "shadcn"
+  ]
 }
