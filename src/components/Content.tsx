@@ -17,7 +17,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 
 const jpycContractAddress = '0x431D5dfF03120AFA4bDf332c61A6e1766eF37BDB';
 const supportChainIds = [1, 137, 100, 336, 43114, 592];
-const supportChainNames = ['Ethereum', 'Polygon', 'Gnosis', 'Shiden', 'Avalanche', 'Astar'];
 
 export default function Content() {
   const chain = useChain();
@@ -49,7 +48,7 @@ export default function Content() {
 
   return (
     <div className='flex flex-col gap-4 items-center'>
-      <div className='flex flex-col justify-start gap-2 text-slate-700'>
+      <div className='flex flex-col justify-start gap-2 text-slate-700 dark:text-slate-300'>
         <div className='text-lg'>
           balance: {data?.displayValue} <span className='text-sm'>JPYC</span>
         </div>
