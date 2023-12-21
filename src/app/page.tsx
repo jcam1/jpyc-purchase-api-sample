@@ -1,7 +1,7 @@
 'use client';
 
-import Content from '@/components/Content';
-import Header from '@/components/Header';
+import Content from '@/components/content';
+import Header from '@/components/header';
 import {
   ThirdwebProvider,
   coinbaseWallet,
