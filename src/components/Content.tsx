@@ -4,7 +4,6 @@ import { useAddress, useChain, useConnectionStatus, useContract, useTokenBalance
 import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 import { Button } from './ui/button';
 import JpycPurchaseForm from './jpyc-purchase-form';
-import { useState } from 'react';
 
 const jpycContractAddress = '0x431D5dfF03120AFA4bDf332c61A6e1766eF37BDB';
 const supportChainIds = [1, 137, 100, 336, 43114, 592];
@@ -15,7 +14,6 @@ export default function Content() {
   const { contract } = useContract(jpycContractAddress, 'token');
   const { data, isLoading } = useTokenBalance(contract, address);
   const connectionStatus = useConnectionStatus();
-  const [submissionStatus, setSubmissionStatus] = useState<'idle' | 'submitting' | 'done'>('idle');
 
   if (connectionStatus === 'unknown' || connectionStatus === 'connecting') {
     return <div>Loading...</div>;
