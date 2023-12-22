@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# JPYC 外部用購入API サンプルコード
 
-## Getting Started
+このレポジトリは、JPYC外部用購入APIのサンプルコードを提供します。このAPIを使用して、JPYCトークンを購入することができます。以下に詳細な情報と使用方法を記載します。
 
-First, run the development server:
+## 注意事項
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **URL**: このサンプルでは、JPYC Appsのstaging環境のURLが使用されています。本番環境への適用には異なるURLが必要です。
+- **購入金額制限とKYC**: 現時点では購入金額制限やKYCの実施はありませんが、将来的に導入される可能性があります。
+- **銀行口座振込情報**: 現状、APIのレスポンスに銀行口座の振込情報が含まれていますが、今後は含まれなくなる可能性があるため、その点に注意してください。
+- **APIキー**: APIキーはヘッダーに含める必要があります。
+
+## リクエストの例
+
+以下は、staging環境でのAPIリクエストのサンプルです。
+
+```http
+POST https://app-jpyc-jp.staging.jcam.co.jp/api/public/buy-sell/bank
+content-type: application/json
+apiKey: {{ apiKey }}
+
+{
+  "amount": 50000,
+  "sendnetwork": "1",
+  "sendnetworkaddress": "0xabcde00893630358284427449880569752667877",
+  "kanalastname": "テスト",
+  "kanafirstname": "ナリカノク",
+  "mailaddress": "57Nv1AIx5q4jH4lqPUsQHOQ11WXBJUkgq4KgKUIa@test.mail"
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## サポートしているネットワーク
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+このAPIは、以下のネットワークをサポートしています。
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Mainnet
+- Polygon
+- Gnosis
+- Shiden
+- Avalanche
+- Astar
 
-## Learn More
+## デザイン
 
-To learn more about Next.js, take a look at the following resources:
+このプロジェクトのデザインには、[shadcn](https://ui.shadcn.com/)のライブラリが使用されています。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 実装の詳細
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+実際にエンドポイントを叩いているコードは、`src/components/JpycPurchaseForm.tsx`の64行目にあります。
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```typescript
+const res = await axios.post('https://app-jpyc-jp.staging.jcam.co.jp/api/public/buy-sell/bank', values, {
+  headers: {
+    'Content-Type': 'application/json',
+    apiKey: apiKey,
+  },
+});
+```
