@@ -1,13 +1,41 @@
-# JPYC 外部用購入API サンプルコード
+# JPYC購入API サンプルアプリ
 
-このレポジトリは、JPYC外部用購入APIのサンプルコードを提供します。このAPIを使用して、JPYCトークンを購入することができます。以下に詳細な情報と使用方法を記載します。
+このリポジトリは、JPYC購入APIを使用したサンプルアプリを提供します。このAPIを使用して、JPYCを購入することができます。以下に詳細な使用方法や注意事項等を記載します。
+
+## 使用方法
+
+### 1. リポジトリをクローン
+```
+git clone https://github.com/jcam1/jpyc-apps-public-api-sample.git
+```
+
+### 2. envファイルの作成
+- .env.exampleファイルのファイル名を.envに変更
+- NEXT_PUBLIC_THIRDWEB_CLIENT_IDの値に、[thirdweb](https://portal.thirdweb.com/api-keys/create)で作成したAPIキーのクライアントIDを入力する
+- NEXT_PUBLIC_JPYC_PURCHASE_API_KEYの値に、JPYC購入APIのAPIキーを入力する
+
+### 3. 依存関係のインストール
+- Nodeバージョンは18.17.0以上
+```
+pnpm install
+or
+npm install
+```
+
+### 4. 実行
+```
+pnpm run dev
+or
+npm run dev
+```
+
+### 5. ブラウザで動作確認
+[http://localhost:3000/](http://localhost:3000/)
 
 ## 注意事項
 
-- **URL**: このサンプルでは、JPYC Appsのstaging環境のURLが使用されています。本番環境への適用には異なるURLが必要です。
-- **購入金額制限とKYC**: 現時点では購入金額制限やKYCの実施はありませんが、将来的に導入される可能性があります。
-- **銀行口座振込情報**: 現状、APIのレスポンスに銀行口座の振込情報が含まれていますが、今後は含まれなくなる可能性があるため、その点に注意してください。
-- **APIキー**: APIキーはヘッダーに含める必要があります。
+- **URL**: このサンプルでは、JPYC Appsのstaging環境のURLが使用されています。本番環境を使用する際には異なるURLが必要です。
+- **JPYC購入APIキー**: JPYC購入APIキーは、リクエストヘッダーに含める必要があります。staging環境と本番環境では、APIキーが異なります。
 
 ## リクエストの例
 
