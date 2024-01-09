@@ -21,9 +21,11 @@ export default function JpycPurchaseForm(props: Props) {
   const { address, chainId, isSubmitted, setIsSubmitted, apiKey } = props;
 
   const formSchema = z.object({
-    amount: z.coerce.number().int().min(3000, {
-      message: '最低購入金額は3000JPYCです。',
-    }),
+    amount: z.coerce
+      .number()
+      .int()
+      .min(3000, '最低購入金額は3,000JPYCです。')
+      .max(1000000, '最大購入金額は1,000,000JPYCです。'),
     sendnetwork: z.string(),
     sendnetworkaddress: z.string().regex(/^0x[a-fA-F0-9]{40}$/, {
       message: '正しいウォレットアドレスを入力してください。',
