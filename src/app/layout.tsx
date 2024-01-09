@@ -6,8 +6,8 @@ import { ThemeProvider } from '@/components/theme-provider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'JPYC Purchase Sample Code',
-  description: 'This is a sample code for purchasing JPYC.',
+  title: 'JPYC Purchase API Sample',
+  description: 'This is a sample app for purchasing JPYC by JPYC Purchase API.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
