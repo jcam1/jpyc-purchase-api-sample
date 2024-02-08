@@ -10,7 +10,7 @@ git clone https://github.com/jcam1/jpyc-apps-public-api-sample.git
 ```
 
 ### 2. envファイルの作成
-- .env.exampleファイルのファイル名を.envに変更
+- .env.exampleファイルのファイル名を.env.localに変更
 - NEXT_PUBLIC_THIRDWEB_CLIENT_IDの値に、[thirdweb](https://portal.thirdweb.com/api-keys/create)で作成したAPIキーのクライアントIDを入力する
 - NEXT_PUBLIC_JPYC_PURCHASE_API_KEYの値に、JPYC購入APIのAPIキーを入力する
 
@@ -48,7 +48,7 @@ apiKey: {{ apiKey }}
 
 {
   "amount": 50000,
-  "sendnetwork": "1",
+  "sendnetwork": "137",
   "sendnetworkaddress": "0xabcde00893630358284427449880569752667877",
   "kanalastname": "テスト",
   "kanafirstname": "ナリカノク",
@@ -60,7 +60,6 @@ apiKey: {{ apiKey }}
 
 このAPIは、以下のネットワークをサポートしています。
 
-- Mainnet
 - Polygon
 - Gnosis
 - Shiden

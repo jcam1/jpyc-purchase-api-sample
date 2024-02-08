@@ -25,7 +25,7 @@ export default function JpycPurchaseForm(props: Props) {
       .number()
       .int()
       .min(3000, '最低購入金額は3,000JPYCです。')
-      .max(1000000, '最大購入金額は1,000,000JPYCです。'),
+      .max(50000, '最大購入金額は50,000JPYCです。'),
     sendnetwork: z.string(),
     sendnetworkaddress: z.string().regex(/^0x[a-fA-F0-9]{40}$/, {
       message: '正しいウォレットアドレスを入力してください。',
@@ -124,7 +124,6 @@ export default function JpycPurchaseForm(props: Props) {
                           </FormControl>
                           <FormMessage />
                           <SelectContent>
-                            <SelectItem value='1'>Ethereum</SelectItem>
                             <SelectItem value='137'>Polygon</SelectItem>
                             <SelectItem value='100'>Gnosis</SelectItem>
                             <SelectItem value='336'>Shiden</SelectItem>

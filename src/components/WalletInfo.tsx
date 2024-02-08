@@ -3,7 +3,7 @@
 import { useAddress, useChain, useConnectionStatus, useContract, useTokenBalance } from '@thirdweb-dev/react';
 
 const jpycContractAddress = '0x431D5dfF03120AFA4bDf332c61A6e1766eF37BDB';
-const supportChainIds = [1, 137, 100, 336, 43114, 592];
+const supportChainIds = [137, 100, 336, 43114, 592];
 
 export default function WalletInfo() {
   const chain = useChain();
